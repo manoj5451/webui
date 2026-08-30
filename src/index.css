@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+
+/*
+ * Theme variables — dark is the default at :root, light overrides via
+ * [data-theme="light"] on <html> (see ThemeContext.tsx). Components
+ * reference these as Tailwind arbitrary values, e.g. bg-[var(--surface)]
+ * — never a hardcoded hex — so a single attribute change on <html>
+ * repaints the whole app instantly, no per-component logic needed.
+ *
+ * Accent, its light/dark gradient shades, text-on-accent, and the
+ * semantic status colors (success/danger) are deliberately IDENTICAL
+ * in both themes — brand color and meaning (this succeeded / this
+ * failed) shouldn't shift depending on which theme is active.
+ */
+:root {
+  --bg: #0B0F14;
+  --surface: #121820;
+  --surface-2: #1A222C;
+  --surface-3: #171F28;
+  --border: #232C37;
+  --text: #E7ECF2;
+  --text-muted: #8A96A3;
+
+  --accent: #F5A623;
+  --accent-light: #FFC966;
+  --accent-dark: #D68910;
+  --text-on-accent: #1A1200;
+
+  --success: #34D399;
+  --success-dark: #10B981;
+  --success-bg: #14291F;
+  --success-border: #1F4A35;
+
+  --danger: #F87171;
+  --danger-bg: #3A1515;
+  --danger-border: #5C2323;
+
+  --warning-text: #F5C466;
+  --warning-bg: #2B2008;
+  --warning-border: #4A3810;
+
+  --neutral-bg: #1A222C;
+  --neutral-text: #94A3B8;
+  --neutral-border: #334155;
+
+  /* Customer Display only — near-pure-black for contrast on the
+     low-cost secondary monitors that screen typically runs on, more
+     extreme than the standard --bg even in dark mode. */
+  --customer-display-bg: #000000;
+}
+
+[data-theme="light"] {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-2: #EEF0F3;
+  --surface-3: #F3F4F6;
+  --border: #E1E5EB;
+  --text: #14181F;
+  --text-muted: #6B7280;
+
+  --success-bg: #ECFDF5;
+  --success-border: #A7F3D0;
+
+  --danger-bg: #FEF2F2;
+  --danger-border: #FECACA;
+
+  --warning-text: #92400E;
+  --warning-bg: #FFFBEB;
+  --warning-border: #FDE68A;
+
+  --neutral-bg: #F1F5F9;
+  --neutral-text: #475569;
+  --neutral-border: #CBD5E1;
+
+  /* Light mode's equivalent of "maximum contrast for a cheap secondary
+     monitor" is close to pure white, not the standard light --bg. */
+  --customer-display-bg: #FFFFFF;
+}
